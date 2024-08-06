@@ -9,14 +9,116 @@ import Background from "../../assets/login2.png";
 import { useState } from "react";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
+import { toastMessage } from "../../utils/helper.js";
+import { apiClient } from "../../lib/api-client.js";
+import { LOGIN_ROUTES, SIGNUP_ROUTES } from "../../utils/constants.js";
+import { useNavigate } from "react-router-dom";
+import { useAppStore } from "../../store/index.js";
 
 const Auth = () => {
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const navigate = useNavigate();
+  const { setUserInfo } = useAppStore();
+  const [email, setemail] = useState("dhinakings123@gmail.com");
+  const [password, setpassword] = useState("Dheena@123");
   const [confirmpassword, setconfirmpassword] = useState("");
 
-  const handleLogin = async() => {};
-  const handleSignup = async() => {};
+  const validateLogin = () => {
+    if (!email.length) {
+      toastMessage("error", "Please Enter your email.");
+      return false;
+    }
+    if (!password.length) {
+      toastMessage("error", "Please Enter your Password.");
+      return false;
+    }
+    return true;
+  };
+
+  const validateSignup = () => {
+    if (!email.length) {
+      toastMessage("error", "Please Enter your email.");
+      return false;
+    }
+    if (!password.length) {
+      toastMessage("error", "Please Enter your Password.");
+      return false;
+    }
+    if (password !== confirmpassword) {
+      toastMessage("error", "Password and confirm password should be same.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleLogin = async () => {
+    try {
+      if (validateLogin()) {
+        const response = await apiClient.post(
+          LOGIN_ROUTES,
+          {
+            email,
+            password,
+          },
+          { withCredentials: true }
+        );
+        // console.log(response);
+        const { status, message, data } = response?.data;
+        if (status === 1) {
+          toastMessage("success", message);
+          // console.log(data);
+          if (data?.id) {
+            console.log(data);
+
+            setUserInfo({ ...data });
+            if (data?.profileSetup) {
+              navigate("/chat");
+            } else {
+              navigate("/profile");
+            }
+          }
+          // Reset Input Field
+          // setemail("");
+          // setpassword("");
+          // setconfirmpassword("");
+        } else {
+          toastMessage("error", message);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSignup = async () => {
+    try {
+      if (validateSignup()) {
+        const response = await apiClient.post(
+          SIGNUP_ROUTES,
+          {
+            email,
+            password,
+          },
+          { withCredentials: true }
+        );
+        console.log(response);
+        const { status, message, data } = response?.data;
+        if (status === 1) {
+          toastMessage("success", message);
+          setUserInfo({ ...data });
+          navigate("/login");
+
+          // Reset Input Field
+          setemail("");
+          setpassword("");
+          setconfirmpassword("");
+        } else {
+          toastMessage("error", message);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="h-[100vh] w-[100vw] flex items-center justify-center">
@@ -32,7 +134,7 @@ const Auth = () => {
             </p>
           </div>
           <div className="flex items-center justify-center w-full">
-            <Tabs className="w-3/4">
+            <Tabs className="w-3/4" defaultValue="login">
               <TabsList className="bg-transparent rounded-none w-full">
                 <TabsTrigger
                   value="login"
@@ -62,7 +164,9 @@ const Auth = () => {
                   value={password}
                   onChange={(e) => setpassword(e.target.value)}
                 />
-                <Button className="rounded-full p-6" onClick={handleLogin}>Login</Button>
+                <Button className="rounded-full p-6" onClick={handleLogin}>
+                  Login
+                </Button>
               </TabsContent>
               <TabsContent value="signup" className="flex flex-col gap-5">
                 <Input
@@ -86,13 +190,19 @@ const Auth = () => {
                   value={confirmpassword}
                   onChange={(e) => setconfirmpassword(e.target.value)}
                 />
-                <Button className="rounded-full p-6" onClick={handleSignup}>Signup</Button>
+                <Button className="rounded-full p-6" onClick={handleSignup}>
+                  Signup
+                </Button>
               </TabsContent>
             </Tabs>
           </div>
         </div>
         <div className="xl:flex justify-center items-center hidden">
-          <img src={Background} alt="Background" className="h-[700px]"/>
+          <img
+            src={Background}
+            alt="Background"
+            className="h-[700px] object-contain"
+          />
         </div>
       </div>
     </div>
