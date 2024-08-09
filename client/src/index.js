@@ -5,12 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SocketProvider } from "./context/socketContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <App />
-    <ToastContainer autoClose={3000} />
+    <SocketProvider>
+      <App />
+      <ToastContainer autoClose={3000} />
+    </SocketProvider>
   </>
 );
 
