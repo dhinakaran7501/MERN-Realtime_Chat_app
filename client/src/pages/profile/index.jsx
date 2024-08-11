@@ -36,12 +36,9 @@ const Profile = () => {
 
       if (image) {
         if (image.startsWith("data:")) {
-          console.log(image);
-
           setImage(image);
         } else {
-          console.log(image);
-          setImage(`${HOST}/${image}`);
+          setImage(`${HOST}${image}`);
         }
       }
     }
@@ -71,7 +68,6 @@ const Profile = () => {
           },
           { withCredentials: true }
         );
-        console.log(response);
         const { status, message, data } = response?.data;
 
         if (status === 1) {
@@ -101,7 +97,7 @@ const Profile = () => {
     const file = event.target.files[0];
     if (file) {
       const formData = new FormData();
-      formData.append("profile-image", file);
+      formData.append("profileimage", file);
       try {
         const response = await apiClient.post(
           ADD_PROFILE_IMAGE_ROUTE,

@@ -39,7 +39,7 @@ const ProfileInfo = () => {
           <div className="h-10 w-10 rounded-full overflow-hidden">
             {userInfo?.image ? (
               <img
-                src={`${HOST}/${userInfo?.image}`}
+                src={`${HOST}${userInfo?.image}`}
                 alt="Profile"
                 className="object-cover w-full h-full bg-black"
               />

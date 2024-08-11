@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProfileInfo from "./components/profile-info";
 import NewDM from "./components/new-dm";
+import { apiClient } from "../../../../lib/api-client";
+import { GET_DM_CONTACTS_ROUTE } from "../../../../utils/constants";
+import { useAppStore } from "../../../../store";
+import ContactLists from "../../../../components/ContactLists";
 
 const ContactsContainer = () => {
+  const { setDirectMessagesContacts, directMessagesContacts } = useAppStore();
+  useEffect(() => {
+    const getContacts = async () => {
+      const response = await apiClient.get(GET_DM_CONTACTS_ROUTE, {
+        withCredentials: true,
+      });
+      const { status, data } = response?.data;
+      if (status === 1) {
+        setDirectMessagesContacts(data);
+      }
+    };
+    getContacts();
+  }, []);
+
   return (
     <div className="relative md:w-[35vw] lg:w-[30vw] xl:w-[20vw] bg-[#1b1c24] border-r-2 border-[#2f303b] w-full">
       <div className="pt-3">
@@ -12,6 +30,9 @@ const ContactsContainer = () => {
         <div className="flex items-center justify-between pr-10">
           <Title text="Direct Messages" />
           <NewDM />
+        </div>
+        <div className="max-h-[38vh] overflow-y-auto scrollbar-hidden">
+          <ContactLists contacts={directMessagesContacts} />
         </div>
       </div>
       <div className="my-5">
@@ -54,7 +75,7 @@ const Logo = () => {
           fill="#a16ee8"
         ></path>{" "}
       </svg>
-      <span className="text-3xl font-semibold ">Syncronus</span>
+      <span className="text-3xl font-semibold ">SDS</span>
     </div>
   );
 };

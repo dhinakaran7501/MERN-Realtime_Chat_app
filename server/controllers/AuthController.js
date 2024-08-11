@@ -1,8 +1,13 @@
 import jwt from "jsonwebtoken";
 import User from "../models/UserModel.js";
 import { compare } from "bcrypt";
-import { renameSync, unlinkSync } from "fs";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
 const maxAge = 3 * 2 * 60 * 60 * 1000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const createToken = (email, userId) => {
   return jwt.sign({ email, userId }, process.env.JWT_KEY, {
@@ -54,7 +59,7 @@ export const login = async (req, res, next) => {
     if (!isUser) {
       return res.status(200).json({
         status: 0,
-        message: "User with the gievn email is not found.",
+        message: "User with the given email is not found.",
       });
     }
 
@@ -168,13 +173,9 @@ export const addProfileImage = async (req, res, next) => {
       });
     }
 
-    const date = Date.now();
-    const fileName = "uploads/profiles/" + date + req.file.originalname;
-    renameSync(req.file.path, fileName);
-
     const updatedUser = await User.findByIdAndUpdate(
       req.userId,
-      { image: fileName },
+      { image: `/uploads/${req.file.filename}` },
       {
         new: true,
         runValidators: true,
@@ -202,8 +203,14 @@ export const removeProfileImage = async (req, res, next) => {
     if (!user) {
       return res.status(200).send("User not found.");
     }
+
     if (user.image) {
-      unlinkSync(user.image);
+      const imagePath = path.join(__dirname, "uploads", user.image); // Adjust the directory as per your setup
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      } else {
+        console.log("File not found:", imagePath);
+      }
     }
     user.image = null;
     await user.save();

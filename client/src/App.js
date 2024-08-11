@@ -33,7 +33,6 @@ const App = () => {
 
         if (status === 1 && data?.id) {
           setUserInfo(data);
-          console.log(message);
         } else {
           setUserInfo(undefined);
         }

@@ -19,7 +19,7 @@ const Auth = () => {
   const navigate = useNavigate();
   const { setUserInfo } = useAppStore();
   const [email, setemail] = useState("dhinakings123@gmail.com");
-  const [password, setpassword] = useState("");
+  const [password, setpassword] = useState("Dheena@123");
   const [confirmpassword, setconfirmpassword] = useState("");
 
   const validateLogin = () => {
@@ -61,14 +61,9 @@ const Auth = () => {
           },
           { withCredentials: true }
         );
-        // console.log(response);
         const { status, message, data } = response?.data;
         if (status === 1) {
-          toastMessage("success", message);
-          // console.log(data);
           if (data?.id) {
-            console.log(data);
-
             setUserInfo({ ...data });
             if (data?.profileSetup) {
               navigate("/chat");
@@ -77,9 +72,9 @@ const Auth = () => {
             }
           }
           // Reset Input Field
-          // setemail("");
-          // setpassword("");
-          // setconfirmpassword("");
+          setemail("");
+          setpassword("");
+          setconfirmpassword("");
         } else {
           toastMessage("error", message);
         }
@@ -100,11 +95,9 @@ const Auth = () => {
           },
           { withCredentials: true }
         );
-        console.log(response);
-        const { status, message, data } = response?.data;
+        const { status, message } = response?.data;
         if (status === 1) {
           toastMessage("success", message);
-          setUserInfo({ ...data });
           navigate("/login");
 
           // Reset Input Field

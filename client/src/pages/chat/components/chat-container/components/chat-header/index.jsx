@@ -15,7 +15,7 @@ const ChatHeader = () => {
               <div className="h-10 w-10 rounded-full overflow-hidden">
                 {selectedChatData?.image ? (
                   <img
-                    src={`${HOST}/${selectedChatData?.image}`}
+                    src={`${HOST}${selectedChatData?.image}`}
                     alt="Profile"
                     className="object-cover w-full h-full bg-black"
                   />
