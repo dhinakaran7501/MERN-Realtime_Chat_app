@@ -177,8 +177,8 @@ const Profile = () => {
                     )}`}
                   >
                     {firstName
-                      ? firstName.split("").shift()
-                      : userInfo.email.split("").shift()}
+                      ? firstName?.split("").shift()
+                      : userInfo.email?.split("").shift()}
                   </div>
                 )}
               </div>

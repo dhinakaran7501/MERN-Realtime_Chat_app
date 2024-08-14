@@ -18,8 +18,8 @@ import { useAppStore } from "../../store/index.js";
 const Auth = () => {
   const navigate = useNavigate();
   const { setUserInfo } = useAppStore();
-  const [email, setemail] = useState("dhinakings123@gmail.com");
-  const [password, setpassword] = useState("Dheena@123");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
 
   const validateLogin = () => {

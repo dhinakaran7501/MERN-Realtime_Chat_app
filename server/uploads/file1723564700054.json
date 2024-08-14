@@ -1,0 +1,807 @@
+{
+	"info": {
+		"_postman_id": "2fb45f6d-57dd-4928-8ea9-94899c20d870",
+		"name": "Create Hackathon API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31323360",
+		"_collection_link": "https://greenbotz.postman.co/workspace/Greenbotz-Workspace~6a4b1158-734a-4a2c-a405-5ec658d0da13/collection/31323360-2fb45f6d-57dd-4928-8ea9-94899c20d870?action=share&source=collection_link&creator=31323360"
+	},
+	"item": [
+		{
+			"name": "POST API's",
+			"item": [
+				{
+					"name": "Create Hackathon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start_date\": \"2027-01-22\",\r\n    \"end_date\": \"2027-01-24\",\r\n    \"title\": \"Team Code\",\r\n    \"eventType\": \"HACKATHON\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/51fc4676-14b2-443c-ac77-3ebdd24580f6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"51fc4676-14b2-443c-ac77-3ebdd24580f6"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/user_id](http://localhost:8000/api/hackathon/118ea095-4b99-4c8c-9f55-040c16df771c)"
+					},
+					"response": []
+				},
+				{
+					"name": "Eligibility",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"min_members\": 2,\r\n    \"max_members\": 5,\r\n    \"min_age\": 20,\r\n    \"max_age\": 30,\r\n    \"from_passing_year\": \"2020\",\r\n    \"to_passing_year\": \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/eligibility/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"eligibility",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "http://localhost:8000/api/hackathon/eligibility/hackathon_id"
+					},
+					"response": []
+				},
+				{
+					"name": "Design",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"logo_url\": \"bgimageText\",\r\n    \"bg_url\": \"thumbnailtext\",\r\n    \"text_color\": \"String\",\r\n    \"bg_color\": \"String\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/design/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"design",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/design/hackathon_id](http://localhost:8000/api/hackathon/design/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Site",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"overview\":\"dheena\",\r\n    \"rules\":\"dheena\",\r\n    \"themes\":\"dheena\",\r\n    \"video_urls\":[\"dheena\", \"dheena\", \"dheena\"],\r\n    \"resource_urls\":[\"dheena\", \"dheena\", \"dheena\"],\r\n    \"theme_description\":\"dheenadheenadheena\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/site/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"site",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/site/hackathon_id](http://localhost:8000/api/hackathon/site/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Judge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"judgement_start_time\":\"2024-07-19T15:20\",  \r\n    \"judgement_end_time\":\"2024-07-19T15:20\" ,\r\n    \"judgeInfo\":[ {\r\n         \"full_name\":\"Dheena\",\r\n    \"email\":\"dheena@gmail.com\",\r\n    \"designation\": \"Developer\",\r\n    \"company\":\"Greenbotz\",\r\n    \"profile_url\":\"image1.jpg\"\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/judge/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"judge",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/judge/hackathon_id](http://localhost:8000/api/hackathon/judge/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Prize",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"announcement_date_time\": \"2024-09-17\",\r\n    \"prize_currency\": \"Rupees\",\r\n    \"prizeDetails\":[{\r\n        \"price_value\": 2000,\r\n        \"prize_name\": \"1st Price\",\r\n        \"prize_description\": \"This is a first price\"\r\n    },{\r\n        \"price_value\": 1000,\r\n        \"prize_name\": \"2nd Price\",\r\n        \"prize_description\": \"This is a second price\"\r\n    },{\r\n        \"price_value\": 500,\r\n        \"prize_name\": \"3rd Price\",\r\n        \"prize_description\": \"This is a third price\"\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/prize/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"prize",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/prize/hackathon_id](http://localhost:8000/api/hackathon/judge/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create discussion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"asdasdsa\",\r\n    \"message\": \"djfhiudfiewqcdsiufhcxvcjiafuviegiufeviadsvakfdsvkfadfawdsfcdsffdsfoiuouojlk\",\r\n    \"recaptcha\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/topic/f9692738-ae85-4737-a892-316189ab8c4a/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"topic",
+								"f9692738-ae85-4737-a892-316189ab8c4a",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/topic/user_id/hackathon_id](http://localhost:8000/api/hackathon/discussion/topic/f9692738-ae85-4737-a892-316189ab8c4a/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Updates",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"asdasdsa\",\r\n    \"message\": \"djfhiudfiewqcdsiufhcxvcjiafuviegiufeviadsvakfdsvkfadfawdsfcdsffdsfoiuouojlk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/updates/f9692738-ae85-4737-a892-316189ab8c4a/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"updates",
+								"f9692738-ae85-4737-a892-316189ab8c4a",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/updates/topic/user_id/hackathon_id](http://localhost:8000/api/hackathon/discussion/topic/f9692738-ae85-4737-a892-316189ab8c4a/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Comments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comments\": \"adsfygyudsgfdsyiuewturtsafdhdskfpoiupouofsdfhdsapfoeurewfwefewqoirffyuoewqrhpoqewfdqerwfnmxc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/comments/f9692738-ae85-4737-a892-316189ab8c4a/24f392c0-877a-4237-8fb0-7a0deb054595",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"comments",
+								"f9692738-ae85-4737-a892-316189ab8c4a",
+								"24f392c0-877a-4237-8fb0-7a0deb054595"
+							]
+						},
+						"description": "http://localhost:8000/api/hackathon/discussion/comments/user_id/discussion_id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET API's",
+			"item": [
+				{
+					"name": "Get Hackathon Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/hackathon_id](http://localhost:8000/api/hackathon/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "All hackathon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search_value\": \"\",\r\n    \"filterCondition\": {\r\n        \"sort\": \"\",\r\n        \"tags\": [\r\n            \r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/all-hackathon?page=1&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"all-hackathon"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "search_value",
+									"value": "data",
+									"disabled": true
+								},
+								{
+									"key": "filter",
+									"value": "{sort= 1, location=[1], status=[1,2]} ",
+									"disabled": true
+								}
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/all-hackathon?page=&amp;pageSize=](http://localhost:8000/api/hackathon/all-hackathon?page=1&pageSize=10)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all discussions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/topics/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd?page=1&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"topics",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/topics/hackathon_id?page=&amp;pageSize=](http://localhost:8000/api/hackathon/discussion/topics/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd?page=1&pageSize=10)"
+					},
+					"response": []
+				},
+				{
+					"name": "Single discussion by discussion ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/topic/d18b2979-bdf8-455f-a659-a39ae1350075",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"topic",
+								"d18b2979-bdf8-455f-a659-a39ae1350075"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/topic/disucssion_id](http://localhost:8000/api/hackathon/discussion/topic/d18b2979-bdf8-455f-a659-a39ae1350075)"
+					},
+					"response": []
+				},
+				{
+					"name": "All Comments by hackathon_id and Discussion_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/comments/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd/d18b2979-bdf8-455f-a659-a39ae1350075",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"comments",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+								"d18b2979-bdf8-455f-a659-a39ae1350075"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/comments/hackathon_id/discussion_id](http://localhost:8000/api/hackathon/discussion/comments/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd/d18b2979-bdf8-455f-a659-a39ae1350075)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT API's",
+			"item": [
+				{
+					"name": "Update hackathon details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"start_date\": \"2024-08-07T00:00:00.000Z\",\r\n    \"end_date\": \"2024-08-10T00:00:00.000Z\",\r\n    \"tags\": [\"AR/VR\", \"Databases\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd/f9692738-ae85-4737-a892-316189ab8c4a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+								"f9692738-ae85-4737-a892-316189ab8c4a"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/hackathon_id/user_id](http://localhost:8000/api/hackathon/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd/f9692738-ae85-4737-a892-316189ab8c4a)"
+					},
+					"response": []
+				},
+				{
+					"name": "Eligibility",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"min_members\": 2,\r\n    \"max_members\": 5,\r\n    \"min_age\": 20,\r\n    \"max_age\": 30,\r\n    \"from_passing_year\": \"2021\",\r\n    \"to_passing_year\": \"2024\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/eligibility/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"eligibility",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/eligibility/hackathon_id](http://localhost:8000/api/hackathon/eligibility/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Design",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bg_url\": \"background img\",\r\n    \"logo_url\": \"logo img\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/design/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"design",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/design/hackathon_id](http://localhost:8000/api/hackathon/eligibility/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Site",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"overview\":\"Dheena\",\r\n    \"rules\":\"\",\r\n    \"video_urls\":[\"Gopi\", \"dheena\", \"dheena\"],\r\n    \"resource_urls\":[\"dheena\", \"Gopi\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/site/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"site",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/site/hackathon_id](http://localhost:8000/api/hackathon/eligibility/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "Judge",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"JudgingStartTime\":\"2024-08-16T13:05\",  \r\n    \"JudgingEndTime\":\"2024-08-23T13:05\" ,\r\n    \"judgeInfo\":[ {\r\n         \"full_name\":\"Dheena\",\r\n    \"email\":\"dheena@gmail.com\",\r\n    \"designation\": \"Developer\",\r\n    \"company\":\"Greenbotz\",\r\n    \"profile_url\":\"image1.jpg\"\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/judge/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"judge",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/judge/hackathon_id](http://localhost:8000/api/hackathon/eligibility/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "prize",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"announcement_date_time\": \"2024-09-17\",\r\n    \"prize_currency\": \"Dollar\",\r\n    \"prizeDetails\":[{\r\n        \"price_value\": 2000,\r\n        \"prize_name\": \"1st Price\",\r\n        \"prize_description\": \"This is a first price\"\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/prize/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"prize",
+								"aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/prize/hackathon_id](http://localhost:8000/api/hackathon/eligibility/aa8ddcff-8ae7-4d81-b4f0-a5cc7872e1dd)"
+					},
+					"response": []
+				},
+				{
+					"name": "update discussion bu discussion_id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Hackathon\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/topic/d18b2979-bdf8-455f-a659-a39ae1350075",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"topic",
+								"d18b2979-bdf8-455f-a659-a39ae1350075"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/topic/discussion_id](http://localhost:8000/api/hackathon/discussion/topic/d18b2979-bdf8-455f-a659-a39ae1350075)"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comments\": \"qwertyyuiop[p';;;lkkjhgfds\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/comments/7e992095-03f6-4ac8-83c4-76fb7c7f7ddd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"comments",
+								"7e992095-03f6-4ac8-83c4-76fb7c7f7ddd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/comments/comments_id](http://localhost:8000/api/hackathon/discussion/comments/18ea183d-229f-45e5-acff-b2bce4ed3e76)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DELETE API's",
+			"item": [
+				{
+					"name": "Delete Hackathon",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/e840ff5f-550f-4417-bbfe-810f2777dbf3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"e840ff5f-550f-4417-bbfe-810f2777dbf3"
+							]
+						},
+						"description": "using hackathon id\n\n[http://localhost:8000/api/hackathon/hackathon_id](http://localhost:8000/api/hackathon/e840ff5f-550f-4417-bbfe-810f2777dbf3)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete discussion by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/topic/d18b2979-bdf8-455f-a659-a39ae1350075",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"topic",
+								"d18b2979-bdf8-455f-a659-a39ae1350075"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/topic/discussion_id](http://localhost:8000/api/hackathon/discussion/topic/d18b2979-bdf8-455f-a659-a39ae1350075)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/hackathon/discussion/comments/7e992095-03f6-4ac8-83c4-76fb7c7f7ddd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"hackathon",
+								"discussion",
+								"comments",
+								"7e992095-03f6-4ac8-83c4-76fb7c7f7ddd"
+							]
+						},
+						"description": "[http://localhost:8000/api/hackathon/discussion/comments/comments_id](http://localhost:8000/api/hackathon/discussion/comments/7e992095-03f6-4ac8-83c4-76fb7c7f7ddd)"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
